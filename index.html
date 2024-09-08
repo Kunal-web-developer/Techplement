@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Techplement Learning Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar-top">
+      <ul class="contact-info">
+        <li>
+          <p>
+            <img src="assets/pin_drop.svg" alt="Location Icon" class="icon" />
+            <a href="https://maps.app.goo.gl/3sTqsP4XftTN23A37"
+              >Techplement Learning Hub, 431001</a
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <img src="assets/mail icon.svg" alt="Email Icon" class="icon" />
+            <a href="mailto:contact@techplement.com">contact@techplement.com</a>
+          </p>
+        </li>
+      </ul>
+      <ul class="social-area">
+        <li>
+          <a
+            href="https://www.linkedin.com/company/techplement/?originalSubdomain=in"
+          >
+            <img width="20px" src="assets/linkedin-logo.svg" alt="LinkedIn" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/techplement?igsh=ZjV0ZHkxYWV3NWY2"
+            ><img width="20px" src="assets/instagram-logo.svg" alt="Instagram"
+          /></a>
+        </li>
+        <li>
+          <a href="https://techplement.com/">
+            <img width="20px" src="assets/web logo.svg" alt="Website" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Navbar with Dropdown and Styled Buttons -->
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/web logo 1.PNG" alt="Techplement Logo" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li class="dropdown">
+          <a href="#">Courses</a>
+          <ul class="dropdown-content">
+            <li><a href="free-course.html">Free Courses</a></li>
+            <li><a href="paid-course.html">Paid Courses</a></li>
+          </ul>
+        </li>
+        <li><a href="login.html" class="btn-login">Login</a></li>
+        <li><a href="sign-up.html" class="btn-signup">Sign Up</a></li>
+      </ul>
+    </div>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Techplement Learning Hub</h1>
+        <p>Your journey to mastering tech skills begins here!</p>
+        <a href="#courses" class="hero-button">Explore Courses</a>
+      </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+      <div class="container">
+        <h2>Search for Courses</h2>
+        <div class="search-bar-container">
+          <input
+            type="text"
+            id="searchBar"
+            placeholder="Search for courses..."
+          />
+          <button type="submit" id="searchButton">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section (Shortened) -->
+    <section class="about-section" id="about-us">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          At <strong>Techplement</strong>, we are passionate about empowering
+          individuals with the skills and knowledge to thrive in the
+          ever-evolving tech landscape. As a premier online learning hub, we
+          provide a comprehensive range of courses designed to cater to both
+          beginners and advanced learners, ensuring that everyone, from novices
+          to tech professionals, can find the resources they need to succeed.
+        </p>
+        <p>
+          Our mission is to deliver an immersive and interactive learning
+          experience, combining expert-led instruction with hands-on projects
+          and real-world applications. We believe in making education
+          accessible, affordable, and effective. With a focus on the latest
+          technological trends and innovations, we aim to equip you with the
+          skills necessary to excel in the modern workforce.
+        </p>
+        <p>
+          Join <strong>Techplement</strong> today and be part of a global
+          community of tech enthusiasts, innovators, and lifelong learners.
+          Together, we’ll shape the future of technology.
+        </p>
+      </div>
+    </section>
+
+    <!-- Image Display Section -->
+    <section class="image-section">
+      <div class="container">
+        <h2>Explore Our Offerings</h2>
+        <div class="image-grid">
+          <div class="image-item">
+            <img src="assets/one.png" alt="Tech Image 1" />
+          </div>
+          <div class="image-item">
+            <img src="assets/two.png" alt="Tech Image 2" />
+          </div>
+          <div class="image-item">
+            <img src="assets/three.png" alt="Tech Image 3" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Form -->
+    <section class="feedback-section">
+      <div class="container">
+        <h2>We Value Your Feedback</h2>
+        <p>
+          We’d love to hear your thoughts! Please fill out the form below to
+          share your feedback with us.
+        </p>
+        <form id="feedbackForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="feedback">Your Feedback</label>
+            <textarea
+              id="feedback"
+              placeholder="Write your feedback here..."
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <p>&copy; 2024 Techplement Learning Hub. All Rights Reserved.</p>
+          <p>
+            Contact:
+            <a href="mailto:contact@techplement.com">contact@techplement.com</a>
+          </p>
+        </div>
+
+        <div class="social-media">
+          <ul class="social-area">
+            <li>
+              <a
+                href="https://www.linkedin.com/company/techplement/?originalSubdomain=in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  width="20px"
+                  src="assets/linkedin-logo.svg"
+                  alt="LinkedIn"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/techplement?igsh=ZjV0ZHkxYWV3NWY2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  width="20px"
+                  src="assets/instagram-logo.svg"
+                  alt="Instagram"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://techplement.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img width="20px" src="assets/web logo.svg" alt="Website" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

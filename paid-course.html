@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Courses - Techplement</title>
+    <style>
+        /* Basic styles and navbar */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Top Navbar */
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .contact-info {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  .contact-info li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-info a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+  
+  .icon {
+    width: 16px;
+    margin-right: 5px;
+  }
+  
+  /* Social Area Links */
+  .social-area {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+  }
+  
+  .social-area li {
+    display: inline-block;
+  }
+  
+  .social-area a img {
+    transition: transform 0.2s;
+  }
+  
+  .social-area a:hover img {
+    transform: scale(1.2);
+  }
+  
+  /* Main Navbar */
+  .navbar {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e1e1e1;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li {
+    position: relative;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+  }
+  
+  .nav-links a:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 160px;
+  }
+  
+  .dropdown-content li {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropdown-content li:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-content a {
+    padding: 10px 15px;
+    color: #333;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Login and Sign Up Buttons */
+  .btn-login, .btn-signup {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-login:hover, .btn-signup:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .nav-links li {
+      width: 100%;
+    }
+  
+    .dropdown-content {
+      position: static;
+      box-shadow: none;
+    }
+  
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  
+    .navbar-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .contact-info, .social-area {
+      justify-content: flex-start;
+    }
+  }
+        /* Course box styles */
+        .courses-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.courses-section h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Grid styling */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Individual course box styling */
+.course-box {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.course-box:hover {
+  transform: translateY(-5px);
+}
+
+.course-box img {
+  max-width: 100%;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.course-box h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.course-box p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.instructor-name {
+  font-weight: bold;
+  color: #008cff;
+}
+        .buy-now-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.buy-now-btn:hover {
+  background-color: #218838;
+}
+footer {
+    background-color: #1f1f1f;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-content a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Section */
+.social-media {
+    margin-top: 10px;
+}
+
+.social-area {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+}
+
+.social-area li {
+    display: inline-block;
+}
+
+.social-area a img {
+    transition: transform 0.3s ease;
+}
+
+.social-area a:hover img {
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-media {
+        margin-top: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+   
+    <div class="navbar-top">
+        <ul class="contact-info">
+          <li>
+            <p>
+              <img src="assets/pin_drop.svg" alt="Location Icon" class="icon" />
+              <a href="https://maps.app.goo.gl/3sTqsP4XftTN23A37"
+                >Techplement Learning Hub, 431001</a
+              >
+            </p>
+          </li>
+          <li>
+            <p>
+              <img src="assets/mail icon.svg" alt="Email Icon" class="icon" />
+              <a href="mailto:contact@techplement.com">contact@techplement.com</a>
+            </p>
+          </li>
+        </ul>
+        <ul class="social-area">
+          <li>
+            <a
+              href="https://www.linkedin.com/company/techplement/?originalSubdomain=in"
+            >
+              <img width="20px" src="assets/linkedin-logo.svg" alt="LinkedIn" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/techplement?igsh=ZjV0ZHkxYWV3NWY2"
+              ><img width="20px" src="assets/instagram-logo.svg" alt="Instagram"
+            /></a>
+          </li>
+          <li>
+            <a href="https://techplement.com/">
+              <img width="20px" src="assets/web logo.svg" alt="Website" />
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Main Navbar with Dropdown and Styled Buttons -->
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/web logo 1.PNG" alt="Techplement Logo" />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about-us">About Us</a></li>
+          <li class="dropdown">
+            <a href="#">Courses</a>
+            <ul class="dropdown-content">
+              <li><a href="free-course.html">Free Courses</a></li>
+              <li><a href="paid-course.html">Paid Courses</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html" class="btn-login">Login</a></li>
+          <li><a href="sign-up.html" class="btn-signup">Sign Up</a></li>
+        </ul>
+      </div>
+
+    <!-- Paid Courses Section -->
+    <div class="courses-section">
+        <h1>Paid Advanced Courses (499 INR Each)</h1>
+      
+        <div class="course-grid">
+          <div class="course-box">
+            <img src="assets/Game-Development.webp" alt="Game Development" />
+            <h2>Game Development (Advanced Level)</h2>
+            <p>
+              Master game development by learning advanced design techniques, complex
+              game logic, and optimization strategies.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Blockchain and Bitcoin.jpg" alt="Bitcoin and Blockchain" />
+            <h2>Bitcoin and Blockchain (Advanced Level)</h2>
+            <p>
+              Delve deep into blockchain technology with real-world applications, smart contracts, and decentralized platforms.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Cloud Computing.jpg" alt="Cloud Computing" />
+            <h2>Cloud Computing (Advanced Level)</h2>
+            <p>
+              Gain expertise in cloud infrastructure, advanced deployment strategies, and optimizing cloud resources.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Ethical Hacking.png" alt="Ethical Hacking" />
+            <h2>Ethical Hacking (Advanced Level)</h2>
+            <p>
+              Become a professional ethical hacker with in-depth knowledge of penetration testing and vulnerability assessment.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Software Development.jpg" alt="Software Development" />
+            <h2>Software Development (Advanced Level)</h2>
+            <p>
+              Learn advanced programming concepts, design patterns, and efficient debugging techniques to excel in software development.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Web Development image.jpg" alt="Web Development" />
+            <h2>Web Development (Advanced Level)</h2>
+            <p>
+              Build complex, responsive web applications using frameworks like React, Angular, and Node.js.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Artificial Intelligence (AI) Basics.jfif" alt="Artificial Intelligence" />
+            <h2>Artificial Intelligence (AI) (Advanced Level)</h2>
+            <p>
+              Explore advanced machine learning models, neural networks, and AI applications in cutting-edge industries.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+      
+          <div class="course-box">
+            <img src="assets/Cybersecurity Essentials.jpg" alt="Cybersecurity" />
+            <h2>Cybersecurity (Advanced Level)</h2>
+            <p>
+              Master cybersecurity with advanced threat modeling, encryption techniques, and incident response protocols.
+            </p>
+            <div class="instructor-name">Instructor: Kunal Gaikwad</div>
+            <button class="buy-now-btn">Buy Now (₹499)</button>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-content">
+            <p>&copy; 2024 Techplement Learning Hub. All Rights Reserved.</p>
+            <p>
+              Contact:
+              <a href="mailto:contact@techplement.com">contact@techplement.com</a>
+            </p>
+          </div>
+  
+          <div class="social-media">
+            <ul class="social-area">
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/techplement/?originalSubdomain=in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    width="20px"
+                    src="assets/linkedin-logo.svg"
+                    alt="LinkedIn"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/techplement?igsh=ZjV0ZHkxYWV3NWY2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    width="20px"
+                    src="assets/instagram-logo.svg"
+                    alt="Instagram"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://techplement.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img width="20px" src="assets/web logo.svg" alt="Website" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

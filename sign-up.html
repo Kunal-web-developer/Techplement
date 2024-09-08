@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Techplement</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+      /* Top Navbar */
+      .navbar-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f1f1f1;
+        padding: 10px 20px;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .contact-info {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+
+      .contact-info li {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-info a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .icon {
+        width: 16px;
+        margin-right: 5px;
+      }
+
+      /* Social Area Links */
+      .social-area {
+        display: flex;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .social-area li {
+        display: inline-block;
+      }
+
+      .social-area a img {
+        transition: transform 0.2s;
+      }
+
+      .social-area a:hover img {
+        transform: scale(1.2);
+      }
+
+      /* Main Navbar */
+      .navbar {
+        background-color: #ffffff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #e1e1e1;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links li {
+        position: relative;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        font-size: 16px;
+        transition: background-color 0.3s, color 0.3s;
+        border-radius: 5px;
+      }
+
+      .nav-links a:hover {
+        background-color: #007bff;
+        color: white;
+      }
+
+      /* Dropdown Menu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        min-width: 160px;
+      }
+
+      .dropdown-content li {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .dropdown-content li:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-content a {
+        padding: 10px 15px;
+        color: #333;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Login and Sign Up Buttons */
+      .btn-login,
+      .btn-signup {
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .btn-login:hover,
+      .btn-signup:hover {
+        background-color: #0056b3;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .nav-links li {
+          width: 100%;
+        }
+
+        .dropdown-content {
+          position: static;
+          box-shadow: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+        .navbar-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .contact-info,
+        .social-area {
+          justify-content: flex-start;
+        }
+      }
+
+      .signup-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .signup-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .signup-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .signup-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .signup-container button:hover {
+        background-color: #0056b3;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        display: none;
+      }
+      .signup-container {
+        width: 350px;
+        margin: 100px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .signup-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .signup-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .signup-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .signup-container button:hover {
+        background-color: #0056b3;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 10px;
+        text-align: center;
+        display: none;
+      }
+      footer {
+        background-color: #1f1f1f;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      .footer-content p {
+        margin: 5px 0;
+      }
+
+      .footer-content a {
+        color: #00bcd4;
+        text-decoration: none;
+      }
+
+      .footer-content a:hover {
+        text-decoration: underline;
+      }
+
+      /* Social Media Section */
+      .social-media {
+        margin-top: 10px;
+      }
+
+      .social-area {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 0;
+      }
+
+      .social-area li {
+        display: inline-block;
+      }
+
+      .social-area a img {
+        transition: transform 0.3s ease;
+      }
+
+      .social-area a:hover img {
+        transform: scale(1.2);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .social-media {
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-top">
+      <ul class="contact-info">
+        <li>
+          <p>
+            <img src="assets/pin_drop.svg" alt="Location Icon" class="icon" />
+            <a href="https://maps.app.goo.gl/3sTqsP4XftTN23A37"
+              >Techplement Learning Hub, 431001</a
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            <img src="assets/mail icon.svg" alt="Email Icon" class="icon" />
+            <a href="mailto:contact@techplement.com">contact@techplement.com</a>
+          </p>
+        </li>
+      </ul>
+      <ul class="social-area">
+        <li>
+          <a
+            href="https://www.linkedin.com/company/techplement/?originalSubdomain=in"
+          >
+            <img width="20px" src="assets/linkedin-logo.svg" alt="LinkedIn" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/techplement?igsh=ZjV0ZHkxYWV3NWY2"
+            ><img width="20px" src="assets/instagram-logo.svg" alt="Instagram"
+          /></a>
+        </li>
+        <li>
+          <a href="https://techplement.com/">
+            <img width="20px" src="assets/web logo.svg" alt="Website" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Navbar with Dropdown and Styled Buttons -->
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/web logo 1.PNG" alt="Techplement Logo" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li class="dropdown">
+          <a href="#">Courses</a>
+          <ul class="dropdown-content">
+            <li><a href="free-course.html">Free Courses</a></li>
+            <li><a href="paid-course.html">Paid Courses</a></li>
+          </ul>
+        </li>
+        <li><a href="login.html" class="btn-login">Login</a></li>
+        <li><a href="sign-up.html" class="btn-signup">Sign Up</a></li>
+      </ul>
+    </div>
+
+    <!-- Sign-Up Form -->
+
+    <div class="signup-container">
+      <h1>Sign Up</h1>
+      <form id="signupForm">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="Confirm Password"
+          required
+        />
+        <div class="error-message" id="errorMessage">
+          Passwords do not match!
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+
+    <script>
+      const signupForm = document.getElementById('signupForm');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirmPassword');
+      const errorMessage = document.getElementById('errorMessage');
+
+      errorMessage.style.display = 'none';
+
+      signupForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+      
+        if (password !== confirmPassword) {
+          errorMessage.textContent = 'Passwords do not match!';
+          errorMessage.style.display = 'block';
+        } else if (password.length < 6) {
+       
+          errorMessage.textContent =
+            'Password must be at least 6 characters long!';
+          errorMessage.style.display = 'block';
+        } else {
+          errorMessage.style.display = 'none';
+          alert('Sign-Up successful!');
+         
+        }
+      });
+    </script>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <p>&copy; 2024 Techplement Learning Hub. All Rights Reserved.</p>
+          <p>
+            Contact:
+            <a href="mailto:contact@techplement.com">contact@techplement.com</a>
+          </p>
+        </div>
+
+        <div class="social-media">
+          <ul class="social-area">
+            <li>
+              <a
+                href="https://www.linkedin.com/company/techplement/?originalSubdomain=in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  width="20px"
+                  src="assets/linkedin-logo.svg"
+                  alt="LinkedIn"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/techplement?igsh=ZjV0ZHkxYWV3NWY2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  width="20px"
+                  src="assets/instagram-logo.svg"
+                  alt="Instagram"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://techplement.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img width="20px" src="assets/web logo.svg" alt="Website" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
